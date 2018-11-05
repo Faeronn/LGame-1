@@ -20,7 +20,6 @@ def Main():
     
     #Message si le joueur est Loup Garou
     if Joueur == 'LoupGarou1' or Joueur == 'LoupGarou2':
-        PictureBox.create_image(75, 75, image=ImgLoupGarou)
         Chat.insert(END, RoleLG + '\n')
         Chat.insert(END, "Utilisez la commande '.kill + nom', pour éliminer un joueur." + '\n')
         Ligne = float(Chat.index('end'))-1.0
@@ -47,20 +46,16 @@ def Main():
 
     #Atribution de l'image en fonction du Role (+ des explications sur les commandes)
     elif Joueur == 'Chasseur':
-        PictureBox.create_image(75, 75, image=ImgChasseur)
         Chat.insert(END, RoleChassou + '\n')
         Chat.insert(END, """Utilisez la commande '.revenge + nom', pour éliminer quelqu'un lorsque
 vous mourrez.""" + '\n')
     elif Joueur == 'Salvateur':
-        PictureBox.create_image(75, 75, image=ImgSalvateur)
         Chat.insert(END, RoleSalva + '\n')
         Chat.insert(END, "Utilisez la commande '.protect + nom' pour proteger un joueur." + '\n')
     elif Joueur == 'Sorciere':
-        PictureBox.create_image(75, 75, image=ImgSorciere)
         Chat.insert(END, RoleSoso + '\n')
         Chat.insert(END, "Utilisez la commande '.poison + nom' pour éliminer un joueur." + '\n')
     else:
-        PictureBox.create_image(75, 75, image=ImgCorbeau)
         Chat.insert(END, RoleCorbac + '\n')
         Chat.insert(END, "Utilisez la commande '.curse + nom' pour maudire un joueur." + '\n')
 
@@ -73,7 +68,6 @@ vous mourrez.""" + '\n')
     
 def TimerNuit():
     global AlreadyVoted, InfoCursed, JoueurIsProtect, Ordi1IsProtect, Ordi2IsProtect, Ordi3IsProtect, Ordi4IsProtect, Ordi5IsProtect, texte, secNuit, isNuit, CanPlayLG, CanPlaySoso, CanPlaySalva, CanPlayCorbac, CanPlayChassou, AlreadyPlayedSalva, AlreadyPlayedCorbac, AlreadyPlayedSoso, AlreadyPlayedChassou, finish
-    BackGround.create_image(400, 230, image=FondNuit)
 
     #Gestion des messages la nuit + roles ordinateurs
     #Salvateur
@@ -501,7 +495,6 @@ def TimerNuit():
 
 def TimerJour():
     global secJour, isJour, JoueurIsVoted, Ordi1IsVoted, Ordi2IsVoted, Ordi3IsVoted, Ordi4IsVoted, Ordi5IsVoted
-    BackGround.create_image(400, 230, image=FondJour)
     if secJour != 0:
         isJour = True
         secJour -= 1
@@ -1018,16 +1011,6 @@ PlayerBox.place(x= 645, y= 215)
 TimerBox.place(x= 655, y= 165)
 
 
-#Images
-ImgLoupGarou = PhotoImage(file ='Ressources/lg.gif')
-ImgSalvateur = PhotoImage(file ='Ressources/salva.gif')
-ImgCorbeau = PhotoImage(file ='Ressources/corbac.gif')
-ImgChasseur = PhotoImage(file ='Ressources/chassou.gif')
-ImgSorciere = PhotoImage(file ='Ressources/soso.gif')
-FondJour = PhotoImage(file ='Ressources/FondJour.gif')
-FondNuit = PhotoImage(file ='Ressources/FondNuit.gif')
-
-
 #---------------------------------------------------#
 #----------------GESTION DES DONNEES----------------#
 #---------------------------------------------------#
@@ -1144,3 +1127,5 @@ Night = "La nuit tombe sur le village de Thiercelieux..."
 RipAll = "Tout le monde est mort !"
 GgLg = "Les LOUPS-GAROUS ont gagné !"
 GgVillage = "Les VILLAGEOIS ont gagné !"
+
+root.mainloop()
